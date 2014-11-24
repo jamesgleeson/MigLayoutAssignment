@@ -37,6 +37,8 @@ public class MainFrame extends JFrame {
 		MigLayout layout = new MigLayout();
 		setLayout(layout);
 		
+		System.out.println("A test of change");
+		
 		//list of samples
 		
 		list.setBorder(BorderFactory.createLoweredBevelBorder());
