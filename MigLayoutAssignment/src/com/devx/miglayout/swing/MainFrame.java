@@ -1,5 +1,5 @@
 /**
- * 
+ * Made a comment on the commit
  */
 package com.devx.miglayout.swing;
 
