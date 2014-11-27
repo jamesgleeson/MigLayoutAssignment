@@ -42,7 +42,7 @@ public class ComplexSample extends AbstractSampleFrame {
 	private JPanel getInformationPanel() {
 		JPanel panel = getPanel("Report Generator");
 		panel.setLayout(new MigLayout("wrap 3","[] 16 [grow] []"));
-		panel.add(new JLabel("Animal Type"),"right");
+		panel.add(new JLabel("Species"),"right");
 		panel.add(new JTextField("Horse"),"growx");
 		panel.add(new JCheckBox("In shelter",true));
 		panel.add(new JLabel("From"),"right");
