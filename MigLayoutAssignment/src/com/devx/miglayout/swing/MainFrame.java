@@ -58,7 +58,7 @@ public class MainFrame extends JFrame {
 		
 		list.setModel(model);
 		
-		add(list,"top, width 150, height max");
+		add(list,"top, width 160, height max");
 		
 		//internal frame used for showing the samples
 		samplesFrame.setVisible(true);
