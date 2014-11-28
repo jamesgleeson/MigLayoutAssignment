@@ -14,6 +14,26 @@ import javax.swing.JTextField;
 import net.miginfocom.swing.MigLayout;
 
 
+import java.awt.Color;
+import java.awt.LayoutManager;
+
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+import net.miginfocom.swing.MigLayout;
+
+/**
+ * Complex MigLayout sample
+ * @author Jacek Furmankiewicz
+ */
 public class ComplexSample extends AbstractSampleFrame {
 
 	public ComplexSample() {
@@ -23,6 +43,7 @@ public class ComplexSample extends AbstractSampleFrame {
 	protected void initComponents() {
 		MigLayout layout = new MigLayout("wrap 2","[] [grow] []","[] [grow] [grow] [grow] []");
 		setLayout(layout);
+		
 		
 		//put all the panels together
 		
@@ -41,8 +62,10 @@ public class ComplexSample extends AbstractSampleFrame {
 	
 	private JPanel getInformationPanel() {
 		JPanel panel = getPanel("Report Generator");
+		panel.setBackground(new Color(204, 153, 255));
+		panel.setOpaque(true);
 		panel.setLayout(new MigLayout("wrap 3","[] 16 [grow] []"));
-		panel.add(new JLabel("Animal Type"),"right");
+		panel.add(new JLabel("Species"),"right");
 		panel.add(new JTextField("Horse"),"growx");
 		panel.add(new JCheckBox("In shelter",true));
 		panel.add(new JLabel("From"),"right");
@@ -53,7 +76,7 @@ public class ComplexSample extends AbstractSampleFrame {
 		panel.add(new JTextField("  01-07-2014   "),"growx");
 		panel.add(new JCheckBox("Fostered",false));
 		panel.add(new JSeparator(),"growx");
-		panel.add(getImageButton("images/edit-redo.png", "Generate Report"),"wrap");
+		//panel.add(getImageButton("images/edit-redo.png", "Generate Report"),"wrap");
 		
 			
 		return panel;
@@ -62,6 +85,8 @@ public class ComplexSample extends AbstractSampleFrame {
 	private JPanel getClientPanel() {
 		JPanel panel = getPanel("Enter in Animal Record");
 		panel.setLayout(new MigLayout("wrap 2","[] 18 []"));
+		panel.setBackground(new Color(204, 153, 255));
+		panel.setOpaque(true);
 		
 		panel.add(new JLabel("Animal Type:"),"right");
 		//panel.add(new JLabel("Donkey"));
@@ -85,11 +110,7 @@ public class ComplexSample extends AbstractSampleFrame {
 		
 		panel.add(new JLabel("Micorchip Number:"),"right");
 		panel.add(new JTextField("#9860000023456"),"growx");
-		
-		panel.add(getImageButton("images/list-add.png", "Enter into DB"));
-		panel.add(getImageButton("images/edit-redo.png", "Update DB"),"sg 1");
-		panel.add(getImageButton("images/list-remove.png", "Delete Entry"),"sg 1");
-		panel.add(getImageButton("images/edit-redo.png", "Query DB"),"sg 1");
+
 		
 		return panel;
 		
@@ -98,6 +119,8 @@ public class ComplexSample extends AbstractSampleFrame {
 	private JPanel getAdditionalInformationPanel() {
 		JPanel panel = getPanel("Additional information");
 		panel.setLayout(new MigLayout("wrap 2","[] 16 [grow][] []"));
+		panel.setBackground(new Color(204, 153, 255));
+		panel.setOpaque(true);
 		
 		panel.add(new JLabel("Worming dose:"),"right");
 		panel.add(new JTextField("2 packets"),"span 4");
@@ -122,7 +145,7 @@ public class ComplexSample extends AbstractSampleFrame {
 		panel.add(new JLabel("Available for homing"),"right");
 		panel.add(new JTextField("No"),"growx");
 		
-		panel.add(getImageButton("images/edit-redo.png","Edit"),"growx");
+		//panel.add(getImageButton("images/edit-redo.png","Edit"),"growx");
 		panel.add(new JSeparator(),"growx");
 		return panel;
 	}
@@ -130,24 +153,19 @@ public class ComplexSample extends AbstractSampleFrame {
 	private JPanel getNotesPanel() {
 		JPanel panel = getPanel("NOTES");
 		panel.setLayout(new MigLayout("wrap 4","[grow] 16 [] 32 [] []","[grow,:100:] [] [] []"));
+		panel.setBackground(new Color(204, 153, 255));
+		panel.setOpaque(true);
 		
 		panel.add(getTable(""),
 				"grow, span 3");
-		panel.add(getImageButton("images/list-add.png", "Add"),"split 3, flowy, sg 1, top");
-		panel.add(getImageButton("images/edit-redo.png", "Edit"),"sg 1");
-		panel.add(getImageButton("images/list-remove.png", "Delete"),"sg 1, wrap");
-		
+
 		return panel;
 	}
 		
 	private JPanel getButtonsPanel() {
 		JPanel panel = new JPanel();
 		panel.setLayout(new MigLayout("","[] [grow, right]"));
-		
-		//panel.add(new JButton("Export"),"sg 1");
-		panel.add(getImageButton("images/document-save.png", "Save"),"split 2, sg 1");
-		panel.add(getImageButton("images/system-log-out.png", "Cancel"),"sg 1");
-		
+	
 		return panel;
 	}
 	
@@ -157,12 +175,7 @@ public class ComplexSample extends AbstractSampleFrame {
 		return panel;
 	}
 	
-	private JButton getImageButton(String imagePath, String text) {
-		java.net.URL imgURL = getClass().getResource(imagePath);
-		JButton button = new JButton(text,new ImageIcon(imgURL));
-		return button;
-	}
-	
+
 	private JScrollPane getTable(Object...columns) {
 		JTable table = new JTable(new Object[0][0], columns);
 		JScrollPane scrollPane = new JScrollPane(table);
