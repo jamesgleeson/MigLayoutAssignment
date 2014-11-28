@@ -1,25 +1,42 @@
 /**
- * Made a comment on the commit
+ * 
  */
-package com.devx.miglayout.swing;
 
+
+import java.awt.Color;
+import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.beans.PropertyVetoException;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JDesktopPane;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JWindow;
+import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.event.ListDataListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 
 import net.miginfocom.swing.MigLayout;
 
-import com.devx.miglayout.swing.samples.ComplexSample;
-
+/**
+ * @author Jacek Furmankiewicz
+ *
+ */
 public class MainFrame extends JFrame {
 
 	private JDesktopPane samplesFrame = new JDesktopPane();
@@ -43,6 +60,12 @@ public class MainFrame extends JFrame {
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		DefaultListModel model = new DefaultListModel();
+//		model.add(0,new BorderLayoutSample());
+//		model.add(1,new BoxLayoutSample1());
+//		model.add(2,new BoxLayoutSample2());
+//		model.add(3, new GridBagLayoutSample());
+//		model.add(4, new GridLayoutDemoSample());
+//		model.add(5, new GroupLayoutSample());
 		model.add(0, new ComplexSample());
 		
 		list.addMouseListener(new MouseAdapter() {
@@ -58,7 +81,7 @@ public class MainFrame extends JFrame {
 		
 		list.setModel(model);
 		
-		add(list,"top, width 160, height max");
+		add(list,"top, width 150, height max");
 		
 		//internal frame used for showing the samples
 		samplesFrame.setVisible(true);
@@ -80,14 +103,15 @@ public class MainFrame extends JFrame {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
             	try {
-        			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//        			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             		//UIManager.setLookAndFeel(new SubstanceOfficeSilver2007LookAndFeel());
+            		UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         		} catch (Exception e) {
         			// TODO Auto-generated catch block			
         			e.printStackTrace();
         		}
             	
-            	MainFrame frame = new MainFrame("Donkey Sanctuary Database");
+            	MainFrame frame = new MainFrame("MigLayout Samples");
                 frame.setVisible(true);
             }
         });
