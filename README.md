@@ -27,13 +27,19 @@ At the bottom is a report generator for generating reports on the status of the 
 
 The GUI User Guide: 
 
--Download ZIP " jamesgleeson/MigLayoutAssignment "
--Extract MigLayoutAssignment Project folder.
--Import the project into Eclipse. 
--Run the project.
--A Blank Frame will open.
--Double click on “Donkey Sanctuary Query DB” .
--Enter in data as desired.
+- Download ZIP " jamesgleeson/MigLayoutAssignment "
+
+- Extract MigLayoutAssignment Project folder.
+
+- Import the project into Eclipse. 
+
+- Run the project.
+
+- A Blank Frame will open.
+
+- Double click on “Donkey Sanctuary Query DB” 
+
+- Enter in data as desired.
 
 
 
